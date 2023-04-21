@@ -109,7 +109,7 @@ function refreshAPIcalls(yearFilter, crimeFilter) {
 
         // Loop through the data.
         for (var i = 0; i < response.length; i++) {
-
+            console.log(response[i])
 
             // Add a new marker to the cluster group, and bind a popup.
             markers.addLayer(L.marker([response[i].crime_longitude[0], response.crime_latitude[0]])
