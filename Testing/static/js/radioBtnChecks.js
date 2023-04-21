@@ -78,7 +78,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 // Use the following links to get the data.
-var baseURL = "http://54.161.222.176:8080/api/v1.0/";
+var baseURL = "https://54.161.222.176:8080/api/v1.0/";
 
 // Function to initiate data pull
 function refreshAPIcalls(yearFilter, crimeFilter) {
