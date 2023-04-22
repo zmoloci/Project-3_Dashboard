@@ -624,7 +624,67 @@ function refreshAPIcalls(yearFilter, crimeFilter) {
         }
     ]
 
+    const sortedNeighbourhoodsByRent = testingNeighTableJSON.sort((a, b) => {
+        return a.median_rent_dollars - b.median_rent_dollars;
+    });
 
+    const csvStringFromJsonArray = [
+        [
+            "No.",
+            "Neighbourhood",
+            "Available units",
+            "Vacancy rate (%)",
+            "Median rent ($)",
+        ],
+        ...sortedNeighbourhoodsByRent
+            .map((item, index) => [
+                index + 1,
+                item.neighbourhood,
+                item.units,
+                item.vacancy_rate_percent,
+                item.median_rent_dollars,
+            ])
+            .slice(0, 5),
+    ]
+        .map((e) => e.join(","))
+        .join("\n");
+
+    const rows = d3.csvParseRows(csvStringFromJsonArray);
+
+    // create table
+    // let table = d3.select("#list").append("table");
+
+    // append table head
+    //   table
+    //     .append("thead")
+    //     .append("tr")
+    //     .selectAll("th")
+    //     .data(rows[0])
+    //     .enter()
+    //     .append("th")
+    //     .text(function (d) {
+    //       return d;
+    //     });
+
+    //   // append table body (data)
+    //   table
+    //     .append("tbody")
+    //     .selectAll("tr")
+    //     .data(rows.slice(1))
+    //     .enter()
+    //     .append("tr")
+    //     .selectAll("td")
+    //     .data(function (d) {
+    //       return d;
+    //     })
+    //     .enter()
+    //     .append("td")
+    //     .text(function (d) {
+    //       return d;
+    //     });
+
+
+    loadAffordableNeighbourhoodTable();
 
 
 
