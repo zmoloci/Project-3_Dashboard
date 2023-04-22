@@ -359,8 +359,6 @@ function refreshAPIcalls(yearFilter, crimeFilter) {
 
     // LYNN, Add table script below --------------------------------
 
-    // Testing data from http://54.161.222.176:8080/api/v1.0/neighbourhood/2010
-
     var testingNeighTableJSON = [
         {
             "availability_rate_percent": 1.2,
