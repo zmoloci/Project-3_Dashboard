@@ -145,6 +145,8 @@ function refreshAPIcalls(yearFilter, crimeFilter) {
 
     // Donut Chart with assist from : https://www.w3schools.com/js/js_graphics_chartjs.asp
     // Need to flip to API data - testing works - http://54.161.222.176:8080/api/v1.0/crimetype/<year> 
+    // Below is from 2010
+
     var testingDonutJson = [
         {
             "count": 1656,
@@ -651,41 +653,44 @@ function refreshAPIcalls(yearFilter, crimeFilter) {
 
     const rows = d3.csvParseRows(csvStringFromJsonArray);
 
-    // create table
-    // let table = d3.select("#list").append("table");
 
-    // append table head
-    //   table
-    //     .append("thead")
-    //     .append("tr")
-    //     .selectAll("th")
-    //     .data(rows[0])
-    //     .enter()
-    //     .append("th")
-    //     .text(function (d) {
-    //       return d;
-    //     });
 
-    //   // append table body (data)
-    //   table
-    //     .append("tbody")
-    //     .selectAll("tr")
-    //     .data(rows.slice(1))
-    //     .enter()
-    //     .append("tr")
-    //     .selectAll("td")
-    //     .data(function (d) {
-    //       return d;
+
+    // let year = yearFilter;
+
+    //     console.log('myyear:',year);
+    //     d3.json(`/api/v1.0/neighbourhood/${year}`).then(data => {
+    //         const columns = ['neighbourhood','units','availability_rate_percent','median_rent_dollars']
+    //         let filterData = data.sort((a, b) => a.average_rent_dollars - b.average_rent_dollars).slice(0, 5);
+    //         x = filterData;
+
+    //         document.getElementById("list").innerHTML = `
+    //         <h3>Most Affordable Neighbourhood</h3>
+    //         <table class="table table-striped">
+    //             <thead class="thead-light">
+    //                 <tr>
+    //                     <th>#</th>
+    //                     <th>Avail %</th>
+    //                     <th>Available</th>
+    //                     <th>Neighbourhood</th>
+    //                     <th>Median rent</th>
+    //                 </tr>
+    //             </thead>
+    //             <tbody></tbody>
+    //         </table>`;
+
+    //         Object.values(filterData).forEach((obj,i) => {
+    //             let row = d3.select('tbody').append('tr');
+
+    //             row.append('td').text(i+1);
+
+    //             Object.entries(obj).forEach(([key, val]) => {
+    //                 if (columns.includes(key)) row.append('td').text(val);
+    //             })
+    //         })
     //     })
-    //     .enter()
-    //     .append("td")
-    //     .text(function (d) {
-    //       return d;
-    //     });
-
 
     loadAffordableNeighbourhoodTable();
-
 
 
 
